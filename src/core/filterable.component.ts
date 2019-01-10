@@ -24,7 +24,6 @@ export abstract class FilterableComponent {
     const propType = typeof prop;
     if (propType !== 'string') {
       prop = prop.toString();
-      console.log('this is a string');
     }
     return prop.toLowerCase().indexOf(keyword) >= 0;
   }

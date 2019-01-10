@@ -25,7 +25,6 @@ export class AppComponent extends FilterableComponent implements OnInit {
     this.wasteLookupService.getWaste().then((data) => {
       this.wastes = data;
       this.sanitize(this.wastes);
-      console.log(this.wastes);
     },
     error => {
       console.log(error);
@@ -41,7 +40,6 @@ export class AppComponent extends FilterableComponent implements OnInit {
   }
 
   setFavorite(waste: Waste) {
-    console.log('waste is: ' + JSON.stringify(waste));
     waste.favorite = !waste.favorite;
     if (waste.favorite) {
       this.favoriteWastes.push(waste);
