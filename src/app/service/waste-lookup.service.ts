@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class WasteLookupService {
-  private address = 'https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR';
+  private address = 'https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000';
 
   constructor(private http: HttpClient) {}
 

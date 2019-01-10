@@ -1,19 +1,19 @@
-<div class="header-row mb-3">
-  <strong>Toronto Waste Lookup</strong>
-</div>
+<div class="header-row mb-3"><strong>Toronto Waste Lookup</strong></div>
 <div class="row">
   <div class="col ml-4 mr-4">
     <div class="input-group mb-3">
-      <input type="text" class="form-control mr-4" placeholder="Search">
-      <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+      <input type="text" [(ngModel)]="searchString" (keyup.enter)="filter()" class="form-control mr-4" placeholder="Search" />
+      <button type="button" (click)="filter()" class="btn btn-primary">
+        <i class="fa fa-search"></i>
+      </button>
     </div>
   </div>
 </div>
 <table *ngIf="wastes" class="ml-4 mr-4">
-  <tbody>
-    <tr *ngFor="let waste of wastes">
-      <td class="col-md-6">{{waste.title}}</td>
-      <td class="col-md-6" [innerHTML]="waste.body"></td>
+  <tbody *ngIf="searchString">
+    <tr *ngFor="let waste of filteredData" class="row">
+      <td class="col-md-6">{{ waste.title }}</td>
+      <td class="col-md-6"><span [innerHTML]="waste.body"></span></td>
     </tr>
   </tbody>
 </table>
