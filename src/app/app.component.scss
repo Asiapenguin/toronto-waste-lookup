@@ -23,3 +23,14 @@
         font-size: 25px;
     }
 }
+
+.table {
+    thead th {
+        border-bottom: none;
+    }
+
+    td {
+        margin-left: .75rem;
+        border-top: none;
+    }
+}

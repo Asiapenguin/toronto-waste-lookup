@@ -15,10 +15,11 @@
     </div>
   </div>
 </div>
-<table *ngIf="wastes" class="ml-4 mr-4">
+<table *ngIf="wastes" class="table">
+  <thead></thead>
   <tbody *ngIf="searchString">
     <tr *ngFor="let waste of filteredData" class="row">
-      <td class="col-md-6">
+      <td class="col">
         <i
           (click)="setFavorite(waste)"
           class="fa fa-star mr-2"
@@ -26,17 +27,17 @@
         ></i
         >{{ waste.title }}
       </td>
-      <td class="col-md-6" [innerHTML]="waste.body"></td>
+      <td class="col" [innerHTML]="waste.body"></td>
     </tr>
   </tbody>
 </table>
-<table class="favorite-table ml-4 mr-4">
+<table class="favorite-table table">
   <thead>
     <th>Favorites</th>
   </thead>
   <tbody *ngIf="favoriteWastes.length">
     <tr *ngFor="let favWaste of favoriteWastes" class="row">
-      <td class="col-md-6">
+      <td class="col">
         <i
           (click)="setFavorite(favWaste)"
           class="fa fa-star mr-2"
@@ -44,12 +45,12 @@
         ></i
         >{{ favWaste.title }}
       </td>
-      <td class="col-md-6" [innerHTML]="favWaste.body"></td>
+      <td class="col" [innerHTML]="favWaste.body"></td>
     </tr>
   </tbody>
   <tbody *ngIf="!favoriteWastes.length">
     <tr class="row">
-      <td class="col-md">No favorites yet...</td>
+      <td class="col">No favorites yet...</td>
     </tr>
   </tbody>
 </table>
