@@ -1,3 +1,5 @@
+# Toronto Waste Lookup
+
 A web app to search for waste items using the Toronto Waste Wizard database, and save frequently used ones.
 
 ## Features
