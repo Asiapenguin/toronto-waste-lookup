@@ -22,10 +22,7 @@ export abstract class FilterableComponent {
 
   private isMatch(prop: any, keyword: string) {
     const propType = typeof prop;
-    if (propType === 'object') {
-      prop = JSON.stringify(prop);
-      console.log('this is an object');
-    } else if (propType !== 'string') {
+    if (propType !== 'string') {
       prop = prop.toString();
       console.log('this is a string');
     }

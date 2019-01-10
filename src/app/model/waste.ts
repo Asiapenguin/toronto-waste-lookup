@@ -4,4 +4,5 @@ export class Waste {
   category: string;
   title: string;
   keywords: string;
+  favorite: boolean;
 }

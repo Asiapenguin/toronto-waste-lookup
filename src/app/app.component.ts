@@ -10,6 +10,8 @@ import { FilterableComponent } from 'src/core/filterable.component';
 })
 export class AppComponent extends FilterableComponent implements OnInit {
   wastes: Array<Waste>;
+  favoriteWastes: Array<Waste> = [];
+  containsFavorite = false;
 
   constructor(private wasteLookupService: WasteLookupService) {
     super();
@@ -35,6 +37,17 @@ export class AppComponent extends FilterableComponent implements OnInit {
       const parser = new DOMParser;
       const encodedBody = parser.parseFromString(waste.body, 'text/html');
       waste.body = encodedBody.body.textContent;
+    }
+  }
+
+  setFavorite(waste: Waste) {
+    console.log('waste is: ' + JSON.stringify(waste));
+    waste.favorite = !waste.favorite;
+    if (waste.favorite) {
+      this.favoriteWastes.push(waste);
+    } else {
+      const index = this.favoriteWastes.indexOf(waste);
+      this.favoriteWastes.splice(index, 1);
     }
   }
 }

@@ -2,7 +2,13 @@
 <div class="row">
   <div class="col ml-4 mr-4">
     <div class="input-group mb-3">
-      <input type="text" [(ngModel)]="searchString" (keyup.enter)="filter()" class="form-control mr-4" placeholder="Search" />
+      <input
+        type="text"
+        [(ngModel)]="searchString"
+        (keyup.enter)="filter()"
+        class="form-control mr-4"
+        placeholder="Search"
+      />
       <button type="button" (click)="filter()" class="btn btn-primary">
         <i class="fa fa-search"></i>
       </button>
@@ -12,8 +18,38 @@
 <table *ngIf="wastes" class="ml-4 mr-4">
   <tbody *ngIf="searchString">
     <tr *ngFor="let waste of filteredData" class="row">
-      <td class="col-md-6">{{ waste.title }}</td>
-      <td class="col-md-6"><span [innerHTML]="waste.body"></span></td>
+      <td class="col-md-6">
+        <i
+          (click)="setFavorite(waste)"
+          class="fa fa-star mr-2"
+          [class.favorited]="waste.favorite"
+        ></i
+        >{{ waste.title }}
+      </td>
+      <td class="col-md-6" [innerHTML]="waste.body"></td>
+    </tr>
+  </tbody>
+</table>
+<table class="favorite-table ml-4 mr-4">
+  <thead>
+    <th>Favorites</th>
+  </thead>
+  <tbody *ngIf="favoriteWastes.length">
+    <tr *ngFor="let favWaste of favoriteWastes" class="row">
+      <td class="col-md-6">
+        <i
+          (click)="setFavorite(favWaste)"
+          class="fa fa-star mr-2"
+          [class.favorited]="favWaste.favorite"
+        ></i
+        >{{ favWaste.title }}
+      </td>
+      <td class="col-md-6" [innerHTML]="favWaste.body"></td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="!favoriteWastes.length">
+    <tr class="row">
+      <td class="col-md">No favorites yet...</td>
     </tr>
   </tbody>
 </table>

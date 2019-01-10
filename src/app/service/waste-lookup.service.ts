@@ -19,6 +19,7 @@ export class WasteLookupService {
             for (const row of result) {
               const waste = new Waste();
               Object.assign(waste, row);
+              Object.assign(waste, { favorite: false });
               wastes.push(waste);
             }
             res(wastes);
