@@ -9,5 +9,13 @@
     </div>
   </div>
 </div>
+<table *ngIf="wastes" class="ml-4 mr-4">
+  <tbody>
+    <tr *ngFor="let waste of wastes">
+      <td class="col-md-6">{{waste.title}}</td>
+      <td class="col-md-6" [innerHTML]="waste.body"></td>
+    </tr>
+  </tbody>
+</table>
 
 <router-outlet></router-outlet>

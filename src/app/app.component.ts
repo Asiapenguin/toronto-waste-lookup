@@ -14,10 +14,21 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.wasteLookupService.getWaste().then((data) => {
       this.wastes = data;
+      this.sanitize(this.wastes);
       console.log(this.wastes);
     },
     error => {
       console.log(error);
     });
+  }
+
+  sanitize(wastes: Array<Waste>) {
+    for (let waste of wastes) {
+      let encoded = encodeURIComponent(waste.body);
+      console.log("encode" + encoded);
+      let decoded = decodeURIComponent(encoded);
+      console.log("decode" + decoded);
+      waste.body = decoded;
+    }
   }
 }
