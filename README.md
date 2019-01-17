@@ -2,6 +2,10 @@
 
 A web app to search for waste items using the Toronto Waste Wizard database, and save frequently used ones.
 
+## Demo
+
+[Demo](https://asiapenguin.github.io/toronto-waste-lookup/). As an example, start by searching for "takeout" as seen in the picture image and try to add favorites.
+
 ## Features
 - Reproduced the design as provided in the screenshot, which displays example search results.
 - The data taken from the [Waste Wizard Lookup data (JSON)](https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/#5ed40494-a290-7807-d5da-09ab6a56fca2).
